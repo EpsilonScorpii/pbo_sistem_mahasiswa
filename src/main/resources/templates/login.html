@@ -2,20 +2,60 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 </head>
-<body>
 
-<h2>Login</h2>
+<body class="bg-light">
 
-<form action="/login" method="post">
-    <input type="text" name="username" placeholder="Username">
-    <br><br>
+<div class="container vh-100 d-flex justify-content-center align-items-center">
 
-    <input type="password" name="password" placeholder="Password">
-    <br><br>
+    <div class="card shadow-lg border-0 rounded-4" style="width: 420px;">
+        <div class="card-body p-5">
 
-    <button type="submit">Login</button>
-</form>
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">Management System</h2>
+                <p class="text-muted mb-0">
+                    Sign in to continue
+                </p>
+            </div>
 
+            <form action="/login" method="post">
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">
+                        Username
+                    </label>
+                    <input
+                        type="text"
+                        name="username"
+                        class="form-control form-control-lg"
+                        placeholder="Enter your username">
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">
+                        Password
+                    </label>
+                    <input
+                        type="password"
+                        name="password"
+                        class="form-control form-control-lg"
+                        placeholder="Enter your password">
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary w-100 btn-lg">
+                    Login
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
