@@ -29,7 +29,12 @@
                         type="text"
                         name="email"
                         class="form-control form-control-lg"
-                        placeholder="Enter your Gmail">
+                        placeholder="Enter your Gmail"
+                        >
+                <div th:if="${emailError}"
+                     class="text-danger mt-1">
+                    <span th:text="${emailError}"></span>
+                </div>
                 </div>
 
                 <div class="mb-4">
