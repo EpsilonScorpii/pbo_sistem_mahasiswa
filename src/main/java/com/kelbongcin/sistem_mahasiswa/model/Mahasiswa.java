@@ -1,11 +1,6 @@
 package com.kelbongcin.sistem_mahasiswa.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "mahasiswa")
@@ -13,40 +8,76 @@ public class Mahasiswa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_users;
 
-    @Column(nullable = false, unique = true)
     private String nim;
-
-    @Column(nullable = false)
-    private String nama;
-
-    private String email;
+    private String nama_mahasiswa;
     private String jurusan;
+    private String email;
 
-    // --- CONSTRUCTOR ---
+
+
+    @OneToOne
+    @MapsId
+    @JoinColumn(name="id_users")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name="id_dosen")
+    private Dosen dosen;
+
     public Mahasiswa() {}
 
-    public Mahasiswa(String nim, String nama, String email, String jurusan) {
+    public Long getId() {
+        return id_users;
+    }
+
+    public void setId_users(Long id_users){
+    this.id_users = id_users;
+}
+
+
+    public Dosen getDosen(){
+    return dosen;
+    }
+
+    public void setDosen(Dosen dosen){
+    this.dosen = dosen;
+    }
+
+    public void setId(Long id_users) {
+        this.id_users = id_users;
+    }
+
+    public String getNim() {
+        return nim;
+    }
+
+    public void setNim(String nim) {
         this.nim = nim;
-        this.nama = nama;
-        this.email = email;
+    }
+
+    public String getNama() {
+        return nama_mahasiswa;
+    }
+
+    public void setNama(String nama_mahasiswa) {
+        this.nama_mahasiswa = nama_mahasiswa;
+    }
+
+    public String getJurusan() {
+        return jurusan;
+    }
+
+    public void setJurusan(String jurusan) {
         this.jurusan = jurusan;
     }
 
-    // --- GETTER DAN SETTER ---
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public String getEmail() {
+        return email;
+    }
 
-    public String getNim() { return nim; }
-    public void setNim(String nim) { this.nim = nim; }
-
-    public String getNama() { return nama; }
-    public void setNama(String nama) { this.nama = nama; }
-
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
-
-    public String getJurusan() { return jurusan; }
-    public void setJurusan(String jurusan) { this.jurusan = jurusan; }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

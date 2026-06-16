@@ -42,4 +42,9 @@ public class User {
     public void setRoles(String roles) {
         this.roles = roles;
     }
+
+    public Object getId_users() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getId_users'");
+    }
 }
