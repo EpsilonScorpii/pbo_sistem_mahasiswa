@@ -71,7 +71,7 @@ public class LoginController {
         return "dosenPage/dashboard";
     }
 
-    @GetMapping("/mahasiswa")
+    @GetMapping("/mahasiswa-page")
     public String mahasiswaPage() {
         return "mahasiswaPage/Dashboard";
     }
