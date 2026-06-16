@@ -14,23 +14,20 @@ public class MahasiswaService {
     @Autowired
     private MahasiswaRepository repo;
 
-    // Ambil semua data
     public List<Mahasiswa> getAllMahasiswa() {
         return repo.findAll();
     }
 
-    // Simpan atau Update data
     public void saveMahasiswa(Mahasiswa mhs) {
         repo.save(mhs);
     }
 
-    // Ambil data berdasarkan ID (untuk edit)
-    public Mahasiswa getMahasiswaById(Long id) {
-        return repo.findById(id).orElse(null);
+    public Mahasiswa getMahasiswaById(Long id_users) {
+        return repo.findById(id_users).orElse(null);
     }
 
     // Hapus data
-    public void deleteMahasiswa(Long id) {
-        repo.deleteById(id);
+    public void deleteMahasiswa(Long id_users) {
+        repo.deleteById(id_users);
     }
 }
